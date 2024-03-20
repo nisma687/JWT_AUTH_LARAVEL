@@ -17,7 +17,8 @@ class UserController extends Controller
     }
     public function store(Request $request){
         $user = new User();
-       
+        $randomString=generateRandomString(10);
+        $user->name=$randomString;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
